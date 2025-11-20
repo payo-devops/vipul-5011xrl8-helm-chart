@@ -4,7 +4,7 @@ metadata:
   name: {{ include "simple-app.fullname" . }}
   labels:
     {{- include "simple-app.labels" . | nindent 4 }}
-    {{- include "team.labels" . | nindent 4 }}
+    team: vipul
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -16,6 +16,7 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
         {{- include "simple-app.selectorLabels" . | nindent 8 }}
+        team: vipul
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
