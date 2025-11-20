@@ -69,6 +69,8 @@ spec:
             httpGet:
               path: /
               port: http
+                initialDelaySeconds: 20
+                periodSeconds: 10
           {{- end }}
           {{- end }}
           resources:
